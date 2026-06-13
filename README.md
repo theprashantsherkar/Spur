@@ -51,8 +51,8 @@ Backend environment variables (`backend/.env`):
 | `PORT` | `8080` | API port |
 | `CORS_ORIGIN` | `http://localhost:5173` | Allowed frontend origin |
 | `MAX_MESSAGE_CHARS` | `4000` | Max accepted user message length |
-| `HISTORY_MESSAGE_CAP` | `12` | Messages of history sent to the LLM |
-| `MAX_OUTPUT_TOKENS` | `512` | LLM output cap (cost control) |
+| `HISTORY_MESSAGE_CAP` | `20` | Messages of history sent to the LLM |
+| `MAX_OUTPUT_TOKENS` | `1024` | LLM output cap (cost control) |
 
 > You can inspect the `conversations` and `messages` tables in DBeaver after running migrations.
 
