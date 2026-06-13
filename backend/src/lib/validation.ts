@@ -2,11 +2,13 @@ import { z } from 'zod';
 
 export const sendMessageBody = z.object({
   message: z.string(),
-  sessionId: z.string().uuid().optional(),
+  // Malformed / non-UUID sessionId silently becomes undefined → new conversation
+  sessionId: z.string().uuid().optional().catch(undefined),
 });
 
 export const historyQuery = z.object({
-  sessionId: z.string().uuid().optional(),
+  // Malformed sessionId silently becomes undefined → empty history response
+  sessionId: z.string().uuid().optional().catch(undefined),
 });
 
 export type SendMessageBody = z.infer<typeof sendMessageBody>;

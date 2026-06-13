@@ -7,7 +7,11 @@ let _db: ReturnType<typeof drizzle<typeof schema>> | null = null;
 
 export function getDb() {
   if (!_db) {
-    const pool = new Pool({ connectionString: config.databaseUrl });
+    const pool = new Pool({
+      connectionString: config.databaseUrl,
+      connectionTimeoutMillis: 5_000,  // fail fast if DB is unreachable
+      idleTimeoutMillis: 30_000,
+    });
     _db = drizzle(pool, { schema });
   }
   return _db;
