@@ -112,11 +112,7 @@ export default function App() {
         ))}
         {loading && (
           <div className="bubble-row bubble-row--ai">
-            <div className="bubble bubble--ai bubble--typing">
-              <span />
-              <span />
-              <span />
-            </div>
+            <span className="thinking-text">Thinking…</span>
           </div>
         )}
         <div ref={bottomRef} />
