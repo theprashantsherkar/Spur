@@ -3,3 +3,6 @@ node_modules/
 dist/
 drizzle/
 *.js.map
+# Stray compiled output outside dist/
+src/**/*.js
+scripts/**/*.js
